@@ -23,11 +23,6 @@ def start(message):
 def func(message):
     if (message.text == "/help"):
         bot.send_message(message.chat.id, help)
-    # elif (message.text == "Поехали"):
-    #     bot.send_message(message.chat.id, text="Введите пример: ")
-    #
-    # elif (message.text == "Выход"):
-    #     bot.send_message(message.chat.id, text="До свидания!")
 
     else:
         bot.send_message(message.chat.id, text=calculator(message.text))
