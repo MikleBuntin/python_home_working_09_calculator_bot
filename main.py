@@ -13,7 +13,10 @@ def summator(msg: telebot.types.Message):
         return str(int(lst[0]) + int(lst[1]))
     return "error"
 
-help = "/start - начало программы; \n /help - помощь; \n "
+help = "/help - помощь; \n /note - справка; \n "
+note = "Я умею производить сложение, вычитание, \n умножение и деление рациональных \n и комплексных чисел \n Пользуйтель знаками: '+', '-', '*' и '/'"
+
+
 @bot.message_handler(commands=['start'])
 def start(message):
     bot.send_message(message.chat.id, text="Привет!".format(message.from_user))
@@ -23,9 +26,11 @@ def start(message):
 def func(message):
     if (message.text == "/help"):
         bot.send_message(message.chat.id, help)
+    elif (message.text == "/note"):
+        bot.send_message(message.chat.id, note)
 
     else:
-        bot.send_message(message.chat.id, text=calculator(message.text))
+        bot.send_message(message.chat.id, text=calculator.input(message.text))
 
 
 
